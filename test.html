@@ -1,0 +1,85 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Homescreen Test</title>
+	<meta name="description" content="Test page for homescreen.js">
+	<meta name="author" content="Kristoffer Lorentsen">
+
+	<!-- The mobile-web-app-capable tells the browser that the page is made for adding to home screen -->
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<!-- Style sheet - only for this this test -->
+	<link rel="stylesheet" href="homescreen.css?v=1.0">
+
+  	<!-- Icons -->
+  	<!-- Android - the largest one is chosen -->
+  	<link rel="icon" sizes="192x192" href="nice-highres.png"> <!-- Recommended -->
+	<link rel="icon" sizes="128x128" href="niceicon.png">
+
+	<!--iOS Safari -->
+	<link rel="apple-touch-icon" sizes="128x128" href="niceicon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="128x128" href="niceicon.png">
+
+
+  <!-- Testing for IE doesn't really make much sense, but I'll do it anyway -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+  
+  <h1>Homescreen.js</h1>
+  <p>Best practice detection and use of the "Add to home screen" function on mobile web browsers.</p>
+  <h2>Client Information</h2>
+  <dl>
+  	<dt>Compatible browser</dt>
+    	<dd id="compbrowser">No</dd>
+    <dt>Standalone/Webclip</dt>
+    	<dd id="standalone">No</dd>
+  	<dt>screen.height</dt>
+    	<dd id="screenheight">0 px</dd>
+  	<dt>innerHeight</dt>
+    	<dd id="innerHeight">0 px</dd>
+    <dt>clientHeight</dt>
+    	<dd id="clientHeight">0 px</dd>		
+  </dl>
+
+
+
+
+	<script src="homescreen.js"></script>
+	<script>
+
+		printSize();
+
+		// Calling script on resize
+		window.addEventListener('resize', function(event){
+  			printSize();
+		});
+
+		// Simple function that prints the screen height to the document
+		function printSize(){
+			document.getElementById("screenheight").innerHTML = screen.height.toString() + " px";
+			document.getElementById("innerHeight").innerHTML = window.innerHeight.toString() + " px";
+			document.getElementById("clientHeight").innerHTML = document.documentElement.clientHeight.toString() + " px";
+		}
+
+		// Set if compatible browser is present
+		if (homescreen.isCompatibleChrome) {
+			document.getElementById("compbrowser").innerHTML = "Chrome"
+		} else if (homescreen.isCompatibleSafari) {
+			document.getElementById("compbrowser").innerHTML = "Safari"
+		}
+
+		// Set standalone if present
+		if (homescreen.isStandalone) {
+			document.getElementById("standalone").innerHTML = "Yes"
+		}
+	</script>
+</body>
+</html>
