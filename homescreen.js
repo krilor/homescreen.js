@@ -38,8 +38,10 @@ window.homescreen = ( function( window, document, undefined ) {
 	console.log("RUNNING")
 
 	// Adding properties to the object
+
 	homescreen['isCompatibleChrome'] = isCompatibleChrome();
 	homescreen['isCompatibleSafari'] = isCompatibleSafari();
+	homescreen['isCompatibleBrowser'] = homescreen['isCompatibleChrome'] || homescreen['isCompatibleSafari'];
 	homescreen['isStandalone'] = isStandalone();
 
 	// Return the object with its properties

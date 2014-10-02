@@ -8,26 +8,48 @@
 	<meta name="description" content="Test page for homescreen.js">
 	<meta name="author" content="Kristoffer Lorentsen">
 
-	<!-- The mobile-web-app-capable tells the browser that the page is made for adding to home screen -->
+	<!-- The (apple-)mobile-web-app-capable tells the browser that the page is made for adding to home screen -->
 	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
 
-	<!-- Style sheet - only for this this test -->
+	<!-- Set apple status bar.
+	- content="black" 				: background color black
+	- content="black-translucent" 	: content is displayed on the entire screen, partially obscured by a black status bar
+	- content="default" 			: normal status bar -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<!-- Style sheet -->
 	<link rel="stylesheet" href="homescreen.css?v=1.0">
 
   	<!-- Icons -->
+  	<!-- Favicon -->
+  	<link rel="icon" href="favicon.ico">
+
   	<!-- Android - the largest one is chosen -->
-  	<link rel="icon" sizes="192x192" href="nice-highres.png"> <!-- Recommended -->
-	<link rel="icon" sizes="128x128" href="niceicon.png">
+  	<link rel="icon" sizes="192x192" href="icon-192x192.png"> <!-- Recommended -->
+	<link rel="icon" sizes="128x128" href="icon-128x128">
 
 	<!--iOS Safari -->
-	<link rel="apple-touch-icon" sizes="128x128" href="niceicon.png">
-	<link rel="apple-touch-icon-precomposed" sizes="128x128" href="niceicon.png">
+	<!-- For iPad with high-resolution Retina display running iOS ≥ 7: -->
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-152x152-precomposed.png">
+	<!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144-precomposed.png">
+	<!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="apple-touch-icon-120x120-precomposed.png">
+	<!-- For iPhone with high-resolution Retina display running iOS ≤ 6: -->
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
+	<!-- For the iPad mini and the first- and second-generation iPad on iOS ≥ 7: -->
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="apple-touch-icon-76x76-precomposed.png">
+	<!-- For the iPad mini and the first- and second-generation iPad on iOS ≤ 6: -->
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png">
+	<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+	<link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
 
 
-  <!-- Testing for IE doesn't really make much sense, but I'll do it anyway -->
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+	<!-- Testing for IE doesn't really make much sense, but I'll do it anyway -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 </head>
 
 <body>
