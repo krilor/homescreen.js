@@ -21,12 +21,12 @@
 	<!-- Style sheet -->
 	<link rel="stylesheet" href="homescreen.css?v=1.0">
 
-  	<!-- Icons -->
-  	<!-- Favicon -->
-  	<link rel="icon" href="favicon.ico">
+	<!-- Icons -->
+	<!-- Favicon -->
+	<link rel="icon" href="favicon.ico">
 
-  	<!-- Android - the largest one is chosen -->
-  	<link rel="icon" sizes="192x192" href="icon-192x192.png"> <!-- Recommended -->
+	<!-- Android - the largest one is chosen -->
+	<link rel="icon" sizes="192x192" href="icon-192x192.png"> <!-- Recommended -->
 	<link rel="icon" sizes="128x128" href="icon-128x128">
 
 	<!--iOS Safari -->
@@ -54,22 +54,19 @@
 
 <body>
 
-  
-  <h1>Homescreen.js</h1>
-  <p>Best practice detection and use of the "Add to home screen" function on mobile web browsers.</p>
-  <h2>Client Information</h2>
-  <dl>
-  	<dt>Compatible browser</dt>
-    	<dd id="compbrowser">No</dd>
-    <dt>Standalone/Webclip</dt>
-    	<dd id="standalone">No</dd>
-  	<dt>screen.height</dt>
-    	<dd id="screenheight">0 px</dd>
-  	<dt>innerHeight</dt>
-    	<dd id="innerHeight">0 px</dd>
-    <dt>clientHeight</dt>
-    	<dd id="clientHeight">0 px</dd>		
-  </dl>
+	<h1>Homescreen.js</h1>
+	<p>Best practice detection and use of the "Add to home screen" function on mobile web browsers.</p>
+	<h2>Client Information</h2>
+	<dl>
+	<dt>isCompatibleChrome</dt>
+		<dd id="compChrome">No</dd>
+	<dt>isCompatibleSafari</dt>
+		<dd id="compSafari">No</dd>
+	<dt>isCompatibleBrowser</dt>
+		<dd id="compBrowser">No</dd>
+	<dt>isStandalone</dt>
+		<dd id="standalone">No</dd>	
+	</dl>
 
 
 
@@ -77,31 +74,19 @@
 	<script src="homescreen.js"></script>
 	<script>
 
-		printSize();
+		// Do tests and change text in respective elements.
+		if (homescreen.isCompatibleChrome) { document.getElementById("compChrome").innerHTML = "Yes"; }
+		if (homescreen.isCompatibleSafari) { document.getElementById("compSafari").innerHTML = "Yes"; }
+		if (homescreen.isCompatibleBrowser) { document.getElementById("compBrowser").innerHTML = "Yes"; }
+		if (homescreen.isStandalone) { document.getElementById("standalone").innerHTML = "Yes"; }
 
-		// Calling script on resize
-		window.addEventListener('resize', function(event){
-  			printSize();
-		});
+		// Add classes to html element.
+		var e = document.documentElement;
+		if (homescreen.isCompatibleChrome) { e.className += ' hsChrome'; }
+		if (homescreen.isCompatibleSafari) {  e.className += ' hsSafari';  }
+		if (homescreen.isCompatibleBrowser) { e.className += ' hsBrowser';  }
+		if (homescreen.isStandalone) {  e.className += ' hsStandalone';  }
 
-		// Simple function that prints the screen height to the document
-		function printSize(){
-			document.getElementById("screenheight").innerHTML = screen.height.toString() + " px";
-			document.getElementById("innerHeight").innerHTML = window.innerHeight.toString() + " px";
-			document.getElementById("clientHeight").innerHTML = document.documentElement.clientHeight.toString() + " px";
-		}
-
-		// Set if compatible browser is present
-		if (homescreen.isCompatibleChrome) {
-			document.getElementById("compbrowser").innerHTML = "Chrome"
-		} else if (homescreen.isCompatibleSafari) {
-			document.getElementById("compbrowser").innerHTML = "Safari"
-		}
-
-		// Set standalone if present
-		if (homescreen.isStandalone) {
-			document.getElementById("standalone").innerHTML = "Yes"
-		}
 	</script>
 </body>
 </html>

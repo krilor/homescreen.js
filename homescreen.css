@@ -1,8 +1,17 @@
-.match {
+/* 	homescreen.css - for testing of homescreen.js 
+	Kristoffer Lorentsen 2014
+*/
 
+/* Conditional styling */
+#compChrome, #compSafari, #compBrowser, #standalone{
+	background-color: red;
+}
+
+.hsChrome #compChrome, .hsSafari #compSafari, .hsBrowser #compBrowser, .hsStandalone #standalone {
 	background-color: green;
 }
 
-.nomatch {
-	background-color: red;
+/* Some other random CSS */
+dd {
+	display: inline;
 }

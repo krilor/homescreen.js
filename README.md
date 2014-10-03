@@ -90,6 +90,32 @@ function isStandalone(){
 	}
 
 ```
+## Then what
+You can use homescreen.js for whatever purpose you want. I've included two examples of use in the `test.html` file. They are as follows.
+
+### Directly altering DOM elements.
+This is an example of how you can use e.g. the isCompatibleChrome value to alter a DOM element.
+```javascript
+if (homescreen.isCompatibleChrome) { document.getElementById("compChrome").innerHTML = "Yes"; }
+```
+It changes the respective elements inner HTML to Yes if true.
+
+### By adding classes to the HTML element.
+This is the **modernizr-way**. Use the test to add a class to the HTML-element. Then use CSS to manipulate the element. Use e.g. the following `javascript` code.
+```javascript
+if (homescreen.isCompatibleChrome) { e.className += ' hsChrome'; }
+```
+You can then use some CSS for conditional formatting.
+```css
+#compChrome {
+	background-color: red;
+}
+
+.hsChrome #compChrome {
+	background-color: green;
+}
+```
+The element will be green if the test is `true`, and red if not.
 
 ## TODO
 There are lots still to do, but it's getting there. Feel free to comment and suggest improvements.
